@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コードダンジョン・ミニ</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>コードダンジョン・ミニ</h1>
+            <div class="stats">
+                <span>HP: <span id="player-hp">100</span></span>
+                <span>コイン: <span id="player-coins">0</span></span>
+                <span>レベル: <span id="dungeon-level">1</span></span>
+            </div>
+        </header>
+        
+        <div class="game-area">
+            <canvas id="game-canvas" width="400" height="400"></canvas>
+            
+            <div class="command-panel">
+                <div class="command-input">
+                    <select id="command-select">
+                        <option value="move">移動</option>
+                        <option value="attack">攻撃</option>
+                        <option value="pickup">拾う</option>
+                    </select>
+                    <select id="direction-select">
+                        <option value="up">上</option>
+                        <option value="right">右</option>
+                        <option value="down">下</option>
+                        <option value="left">左</option>
+                    </select>
+                    <button id="execute-btn">実行</button>
+                </div>
+                <div class="command-queue">
+                    <h3>コマンドキュー</h3>
+                    <ul id="command-list"></ul>
+                    <button id="run-all-btn">すべて実行</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="shop-panel">
+            <h2>ショップ</h2>
+            <div class="shop-items">
+                <div class="shop-item" data-id="extra-command">
+                    <h3>追加コマンド</h3>
+                    <p>新しいコマンド「ダッシュ」を解放</p>
+                    <button class="buy-btn" data-price="120" data-item="extra-command">購入 (¥120)</button>
+                </div>
+                <div class="shop-item" data-id="health-potion">
+                    <h3>回復ポーション</h3>
+                    <p>HPを完全回復</p>
+                    <button class="buy-btn" data-price="240" data-item="health-potion">購入 (¥240)</button>
+                </div>
+            </div>
+            <div class="payment-methods">
+                <button id="paypay-btn" class="payment-btn">PayPayで支払う</button>
+                <button id="line-pay-btn" class="payment-btn">LINE Payで支払う</button>
+                <button id="rakuten-pay-btn" class="payment-btn">楽天ペイで支払う</button>
+            </div>
+        </div>
+        
+        <div id="message-log">
+            <h3>メッセージログ</h3>
+            <div id="log-content"></div>
+        </div>
+    </div>
+
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>決済</h2>
+            <div id="payment-details"></div>
+            <div id="qr-code-area">
+                <img id="qr-code" src="" alt="QRコード">
+            </div>
+            <p>スマートフォンでQRコードをスキャンして決済を完了してください</p>
+        </div>
+    </div>
+
+    <script src="js/game.js"></script>
+    <script src="js/payment.js"></script>
+</body>
+</html>
