@@ -106,6 +106,12 @@ function drawGame() {
                 ctx.fillStyle = '#f8f8f8';
             } else {
                 ctx.fillStyle = '#333';
+                // 壁を絵文字で表現することもできます
+                // ctx.fillStyle = '#f8f8f8';
+                // ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
+                // ctx.font = `${cellSize * 0.7}px "Apple Color Emoji", "Segoe UI Emoji", sans-serif`;
+                // ctx.fillText('🧱', x * cellSize + cellSize/2, y * cellSize + cellSize/2);
+                // continue;
             }
             ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
             
@@ -117,43 +123,49 @@ function drawGame() {
     
     // エンティティを描画
     gameState.dungeon.entities.forEach(entity => {
-        let color = '#000';
-        let symbol = '?';
+        let emoji = '❓'; // デフォルト
+        let bgColor = 'transparent'; // 背景色
         
         switch(entity.type) {
             case 'enemy':
-                color = '#e74c3c';
-                symbol = 'E';
+                emoji = '👾'; // 敵
+                bgColor = '#ffebee'; // 薄い赤色の背景
                 break;
             case 'item':
-                color = entity.itemType === 'coin' ? '#f1c40f' : '#3498db';
-                symbol = entity.itemType === 'coin' ? 'C' : 'P';
+                if (entity.itemType === 'coin') {
+                    emoji = '💰'; // コイン
+                    bgColor = '#fffde7'; // 薄い黄色の背景
+                } else {
+                    emoji = '🧪'; // ポーション
+                    bgColor = '#e3f2fd'; // 薄い青色の背景
+                }
                 break;
             case 'exit':
-                color = '#2ecc71';
-                symbol = 'X';
+                emoji = '🚪'; // 出口
+                bgColor = '#e8f5e9'; // 薄い緑色の背景
                 break;
         }
         
-        ctx.fillStyle = color;
-        ctx.fillRect(entity.x * cellSize + 2, entity.y * cellSize + 2, cellSize - 4, cellSize - 4);
+        // 背景色を描画
+        ctx.fillStyle = bgColor;
+        ctx.fillRect(entity.x * cellSize, entity.y * cellSize, cellSize, cellSize);
         
-        ctx.fillStyle = '#fff';
-        ctx.font = `${cellSize * 0.7}px Arial`;
+        // 絵文字を描画
+        ctx.font = `${cellSize * 0.7}px "Apple Color Emoji", "Segoe UI Emoji", sans-serif`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillText(symbol, entity.x * cellSize + cellSize/2, entity.y * cellSize + cellSize/2);
+        ctx.fillText(emoji, entity.x * cellSize + cellSize/2, entity.y * cellSize + cellSize/2);
     });
     
     // プレイヤーを描画
-    ctx.fillStyle = '#3498db';
-    ctx.fillRect(gameState.player.x * cellSize + 2, gameState.player.y * cellSize + 2, cellSize - 4, cellSize - 4);
+    ctx.fillStyle = '#e3f2fd'; // 薄い青色の背景
+    ctx.fillRect(gameState.player.x * cellSize, gameState.player.y * cellSize, cellSize, cellSize);
     
-    ctx.fillStyle = '#fff';
-    ctx.font = `${cellSize * 0.7}px Arial`;
+    // プレイヤーの絵文字
+    ctx.font = `${cellSize * 0.7}px "Apple Color Emoji", "Segoe UI Emoji", sans-serif`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('P', gameState.player.x * cellSize + cellSize/2, gameState.player.y * cellSize + cellSize/2);
+    ctx.fillText('🙎‍♂️', gameState.player.x * cellSize + cellSize/2, gameState.player.y * cellSize + cellSize/2);
     
     // UIを更新
     updateUI();
