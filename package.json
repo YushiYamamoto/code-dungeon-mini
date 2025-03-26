@@ -1,0 +1,17 @@
+{
+  "name": "code-dungeon-mini",
+  "version": "1.0.0",
+  "description": "日本の決済サービスに対応した超小規模ブラウザゲーム",
+  "main": "server.js",
+  "scripts": {
+    "test": "vitest"
+  },
+  "keywords": [
+    "game",
+    "browser-game",
+    "payment",
+    "javascript"
+  ],
+  "author": "Yushi Yamamoto",
+  "license": "MIT"
+}
