@@ -68,6 +68,12 @@ function handlePaymentSuccess(itemId) {
             updateUI();
             logMessage('HPが全回復しました！');
             break;
+        case 'extinction-book':
+            // 全敵を絶滅
+            gameState.dungeon.entities = [];
+            updateUI();
+            logMessage('すべての敵を絶滅させました！');
+            break;
     }
 }
 

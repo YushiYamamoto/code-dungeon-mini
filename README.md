@@ -84,9 +84,18 @@
         <img src="https://img.shields.io/badge/Serverless-FD5750?style=for-the-badge&logo=serverless&logoColor=white" alt="Serverless">
       </td>
       <td>
-        <img src="public/assets/badges/paypay.png" height="28" alt="PayPay"><br>
-        <img src="public/assets/badges/linepay.png" height="28" alt="LINE Pay"><br>
-        <img src="public/assets/badges/rakutenpay.png" height="28" alt="楽天ペイ">
+        <!-- PayPay風バッジ（自作例） -->
+        <a href="https://paypay.ne.jp/" target="_blank" rel="noopener">
+        <img src="https://img.shields.io/badge/PayPay-FF0033?style=for-the-badge&logo=paypay&logoColor=white" alt="PayPay">
+        </a>
+        <!-- LINE Pay風バッジ -->
+        <a href="https://line-pay.com/" target="_blank" rel="noopener">
+        <img src="https://img.shields.io/badge/LINE%20Pay-00B900?style=for-the-badge&logo=line&logoColor=white" alt="LINE Pay">
+        </a>
+        <!-- 楽天ペイ風バッジ -->
+        <a href="https://payment.rakuten.co.jp/" target="_blank" rel="noopener">
+        <img src="https://img.shields.io/badge/%E6%A5%BD%E5%A4%A9%E3%83%9A%E3%82%A4-BF0000?style=for-the-badge&logo=rakuten&logoColor=white" alt="楽天ペイ">
+        </a>
       </td>
     </tr>
   </table>
@@ -204,8 +213,8 @@ RAKUTEN_PAY_SHOP_ID=your_rakuten_shop_id
   <a href="https://github.com/YushiYamamoto">
     <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
   </a>
-  <a href="https://twitter.com/yourhandle">
-    <img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter">
+  <a href="https://x.com/prodouga">
+    <img src="https://img.shields.io/badge/x-1DA1F2?style=for-the-badge&logo=x&logoColor=white" alt="x">
   </a>
 </p>
 </div>

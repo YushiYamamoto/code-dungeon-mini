@@ -16,7 +16,11 @@
                 <span>レベル: <span id="dungeon-level">1</span></span>
             </div>
         </header>
-        
+
+        <div id="message-log">
+            <h3>メッセージログ</h3>
+            <div id="log-content"></div>
+        </div>        
         <div class="game-area">
             <canvas id="game-canvas" width="400" height="400"></canvas>
             
@@ -56,6 +60,11 @@
                     <p>HPを完全回復</p>
                     <button class="buy-btn" data-price="240" data-item="health-potion">購入 (¥240)</button>
                 </div>
+                <div class="shop-item" data-id="extinction-book">
+                    <h3>絶滅の書</h3>
+                    <p>すべての敵を絶滅させる</p>
+                    <button class="buy-btn" data-price="9999" data-item="extinction-book">購入 (¥9999)</button>
+                </div>                
             </div>
             <div class="payment-methods">
                 <button id="paypay-btn" class="payment-btn">PayPayで支払う</button>
@@ -64,10 +73,6 @@
             </div>
         </div>
         
-        <div id="message-log">
-            <h3>メッセージログ</h3>
-            <div id="log-content"></div>
-        </div>
     </div>
 
     <div id="payment-modal" class="modal">

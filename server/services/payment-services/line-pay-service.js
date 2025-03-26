@@ -248,7 +248,8 @@ class LinePayService {
   _getItemName(itemId) {
     const items = {
       'extra-command': '追加コマンド「ダッシュ」',
-      'health-potion': '回復ポーション'
+      'health-potion': '回復ポーション',
+      'extinction-book': '絶滅の書'
     };
     
     return items[itemId] || 'コードダンジョン・ミニ アイテム';

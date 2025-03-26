@@ -508,6 +508,8 @@ function getItemName(itemId) {
             return '回復ポーション';
         default:
             return 'アイテム';
+        case 'extinction-book':
+            return '絶滅の書';
     }
 }
 
@@ -551,6 +553,54 @@ function setupEventListeners() {
             const price = parseInt(selectedItem.querySelector('.buy-btn').getAttribute('data-price'));
             processPayment('rakutenpay', itemId, price);
         }
+    });
+}
+
+// コマンド名を日本語に変換する関数
+function translateCommand(commandType) {
+    const commandMap = {
+        'move': '移動',
+        'attack': '攻撃',
+        'pickup': '拾う',
+        'dash': 'ダッシュ'
+    };
+    return commandMap[commandType] || commandType;
+}
+
+// 方向を日本語に変換する関数
+function translateDirection(direction) {
+    const directionMap = {
+        'up': '上',
+        'right': '右',
+        'down': '下',
+        'left': '左'
+    };
+    return directionMap[direction] || direction;
+}
+
+// コマンド追加関数を修正
+function addCommand() {
+    const commandType = document.getElementById('command-select').value;
+    const direction = document.getElementById('direction-select').value;
+    
+    gameState.commands.push({
+        type: commandType,
+        direction: direction
+    });
+    
+    updateCommandList();
+    logMessage(`コマンド追加: ${translateCommand(commandType)} ${translateDirection(direction)}`);
+}
+
+// コマンドリスト更新関数を修正
+function updateCommandList() {
+    const list = document.getElementById('command-list');
+    list.innerHTML = '';
+    
+    gameState.commands.forEach((cmd, index) => {
+        const li = document.createElement('li');
+        li.textContent = `${index + 1}. ${translateCommand(cmd.type)} ${translateDirection(cmd.direction)}`;
+        list.appendChild(li);
     });
 }
 
